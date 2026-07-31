@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane styleClass="root-pane" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.bank.controller.DashboardController">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="top-bar">
+            <padding><Insets top="14" right="20" bottom="14" left="20"/></padding>
+            <Text text="SecureBank" styleClass="brand-text"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="welcomeLabel" styleClass="welcome-label"/>
+            <Button text="Logout" onAction="#handleLogout" styleClass="secondary-button"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="10" styleClass="side-panel" prefWidth="220">
+            <padding><Insets top="20" right="16" bottom="20" left="16"/></padding>
+            <Label text="Your Accounts" styleClass="section-label"/>
+            <ListView fx:id="accountListView" VBox.vgrow="ALWAYS"/>
+            <Button text="+ New Account" onAction="#handleNewAccount" maxWidth="Infinity" styleClass="secondary-button"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="16" alignment="TOP_CENTER">
+            <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+
+            <VBox alignment="CENTER" spacing="4" styleClass="balance-card">
+                <Label text="Current Balance" styleClass="balance-caption"/>
+                <Text fx:id="balanceText" text="₹ 0.00" styleClass="balance-text"/>
+                <Label fx:id="accountNumberLabel" styleClass="account-number-label"/>
+            </VBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Deposit" onAction="#handleDeposit" styleClass="primary-button"/>
+                <Button text="Withdraw" onAction="#handleWithdraw" styleClass="primary-button"/>
+                <Button text="Transfer" onAction="#handleTransfer" styleClass="primary-button"/>
+                <Button text="Refresh" onAction="#handleRefresh" styleClass="secondary-button"/>
+            </HBox>
+
+            <Label fx:id="statusLabel" styleClass="status-label" wrapText="true"/>
+
+            <Label text="Transaction History" styleClass="section-label"/>
+            <TableView fx:id="historyTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colDate" text="Date" prefWidth="150"/>
+                    <TableColumn fx:id="colType" text="Type" prefWidth="120"/>
+                    <TableColumn fx:id="colAmount" text="Amount" prefWidth="100"/>
+                    <TableColumn fx:id="colBalance" text="Balance After" prefWidth="120"/>
+                    <TableColumn fx:id="colDesc" text="Description" prefWidth="200"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

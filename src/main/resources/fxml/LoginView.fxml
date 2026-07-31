@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" spacing="16" styleClass="root-pane"
+      xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.bank.controller.LoginController">
+    <padding>
+        <Insets top="40" right="40" bottom="40" left="40"/>
+    </padding>
+
+    <Text text="SecureBank" styleClass="title-text"/>
+    <Text text="Sign in to your account" styleClass="subtitle-text"/>
+
+    <VBox spacing="10" maxWidth="300">
+        <TextField fx:id="usernameField" promptText="Username"/>
+        <PasswordField fx:id="passwordField" promptText="Password"/>
+        <Label fx:id="errorLabel" styleClass="error-label" wrapText="true"/>
+        <Button text="Login" defaultButton="true" onAction="#handleLogin" maxWidth="Infinity" styleClass="primary-button"/>
+        <Button text="Create an account" onAction="#handleGoToRegister" maxWidth="Infinity" styleClass="secondary-button"/>
+    </VBox>
+</VBox>
